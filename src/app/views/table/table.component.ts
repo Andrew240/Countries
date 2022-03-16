@@ -35,7 +35,10 @@ export class TableComponent implements AfterViewInit, OnDestroy, OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
-      lengthMenu: [[10], [10]],
+      lengthMenu: [[10, 50, 100, 250], [10, 50, 100, 250]],
+      dom: "<'row'<'col-lg-6 col-md-6 col-sm-6 col-12'l><'col-lg-6 col-md-6 col-sm-6 col-12'f>>" +
+          "<'row'<'col-12'tr>>" +
+          "<'row'<'col-lg-3 col-12'i><'col-lg-9 col-12'p>>",
       responsive: true,
       /* below is the relevant part, e.g. translated to spanish */
       language: {
