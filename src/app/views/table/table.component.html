@@ -1,4 +1,4 @@
-<div class="container mt-4 mb-4 d-flex flex-column min-vh-100" style="min-height: max-content;">
+<div class="container mt-4 mb-4 d-flex flex-column min-vh-100">
     <div class="table-responsive">
         <div class="form-group row mb-4">
             <label class="col-lg-3 col-md-12 col-sm-12 col-form-label">Realizar una consulta al API</label>
@@ -34,10 +34,10 @@
                 <ng-container *ngIf="countries.length > 0">
                     <tr *ngFor="let country of countries; index as i">
                         <td>{{i + 1}}</td>
-                        <td>{{country.name.common}}</td>
-                        <td>{{country.capital ? country.capital.toString() : ''}}</td>
-                        <td>{{country.region}}</td>
-                        <td>{{country.subregion}}</td>
+                        <td class="nowrap-content">{{country.name.common}}</td>
+                        <td class="nowrap-content">{{country.capital ? country.capital.toString() : ''}}</td>
+                        <td class="nowrap-content">{{country.region}}</td>
+                        <td class="nowrap-content">{{country.subregion}}</td>
                         <td>{{country.area}}</td>
                         <td>{{country.population}}</td>
                         <td>{{country.flag}}</td>
