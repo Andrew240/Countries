@@ -1,0 +1,60 @@
+<div class="container mt-4 mb-4">
+    <div class="table-responsive">
+        <div class="form-group row mb-4">
+            <label class="col-lg-3 col-md-12 col-sm-12 col-form-label">Realizar una consulta al API</label>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                <ng-select [items]="filters" placeholder="Selecciona un tipo de filtro" bindLabel="label"
+                    bindValue="value" (ngModelChange)="select($event)" [(ngModel)]="selectedFilter">
+                </ng-select>
+            </div>
+            <div *ngIf="selectedFilter" class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Introduce tu busqueda..." type="text" name="name"
+                        (ngModelChange)="search($event)" [(ngModel)]="string_value">
+                    <button type="button" class="btn btn-dark"
+                        (click)="searchByFilter(string_value, selectedFilter)">Buscar</button>
+                </div>
+            </div>
+        </div>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+            <thead>
+                <tr>
+                    <th><span class="m-r-10">#</span></th>
+                    <th><span class="m-r-10">Nombre</span></th>
+                    <th><span class="m-r-10">Capital</span></th>
+                    <th><span class="m-r-10">Región</span></th>
+                    <th><span class="m-r-10">Subregión</span></th>
+                    <th><span class="m-r-10">Área</span></th>
+                    <th><span class="m-r-10">Población</span></th>
+                    <th><span class="m-r-10">Bandera</span></th>
+                    <th><span class="m-r-10">Mapa</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="countries.length > 0">
+                    <tr *ngFor="let country of countries; index as i">
+                        <td>{{i + 1}}</td>
+                        <td>{{country.name.common}}</td>
+                        <td>{{country.capital ? country.capital.toString() : ''}}</td>
+                        <td>{{country.region}}</td>
+                        <td>{{country.subregion}}</td>
+                        <td>{{country.area}}</td>
+                        <td>{{country.population}}</td>
+                        <td>{{country.flag}}</td>
+                        <td>
+                            <a href="{{country.maps.googleMaps}}" class="link-dark" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pin-map-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z" />
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

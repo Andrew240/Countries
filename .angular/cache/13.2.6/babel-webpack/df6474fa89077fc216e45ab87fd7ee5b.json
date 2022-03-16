@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: true,\n  end_point: 'https://restcountries.com/v3.1/'\n};","map":null,"metadata":{},"sourceType":"module"}
